@@ -11,8 +11,10 @@ var menu = new Phaser.Class({
     },
     create: function() {
         var backimage = this.add.graphics();
-        const music = this.sound.add('corgi');
-        music.play();
+        console.log(music.isPlaying);
+        if (!music.isPlaying) {
+            music.play();
+        };
         backimage.fillStyle(0x37313b, 1);
         backimage.fillRect(0, 0, 800, 800);
         this.cameras.main.fadeIn(1000, 0, 0, 0);
@@ -24,6 +26,9 @@ var menu = new Phaser.Class({
         var logo = this.add.image(400, 200, 'logo');
         var miata = this.add.image(400, 375, 'miata');
         let fadeOut = (sceneChoice) => {
+            if (sceneChoice==='mapSelect') {
+                music.stop();
+            }
             this.cameras.main.fadeOut(1000, 0, 0, 0)
             this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
                 this.scene.start(sceneChoice);

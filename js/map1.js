@@ -176,7 +176,7 @@ var map1 = new Phaser.Class(function(){
                     .scale(1000);
                 setTimeout(function() {
                     user.body.setMaxSpeed(500);
-                }, 500);
+                }, 10000);
             }
         });
 
@@ -314,12 +314,12 @@ var map1 = new Phaser.Class(function(){
 
         if (p1Tile.index == 4 || p1Tile.index == 5 || p1Tile.index == 6 || p1Tile.index == 7 || p1Tile.index == 8 || p1Tile.index == 9) {
             //this slows car down in grass
-            if (player.body.speed > 300) {
+            if (player.body.speed > 200) {
                 masSpeed = (masSpeed - 7)
             }
             ranOnce = true;
             player.body.setMaxSpeed(masSpeed)
-            if (player.body.speed < 310) {
+            if (player.body.speed < 200) {
                 if (player.body.speed > 15 && (keyLEFT.isDown || p1Left)) {
                     player.setAngularVelocity(-50);
                 } else if (player.body.speed > 15 && (keyRIGHT.isDown || p1Right)) {

@@ -146,6 +146,7 @@ var loading = new Phaser.Class({
         }
     },
     create: function() {
+        music = this.sound.add('corgi');
         if(!firstTime) {
         this.scene.start('howTo')
         this.scene.stop();
